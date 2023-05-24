@@ -1,29 +1,2 @@
-spring:
-  profiles:
-    active: dev
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
-#  session:
-#    store-type: redis
-#    timeout: 2592000
-  datasource:
-    url: jdbc:mysql://localhost:3306/api_template
-    username: root
-    password: 1212
 
-
-  redis:
-    host: 127.0.0.1
-#    password: 1212
-    port: 6379
-    database: 0
-
-aliyun:
-  sms:
-    accessKeyId: LTAI5tPzBcaD3QAkkNQ4d9rg
-    accessKeySecret: RcMmZK1ZkwCgwE7p3fWHuGJIUSlQaP
-    templateCode: SMS_273820632
-server:
-  port: 8080
 
