@@ -1,6 +1,10 @@
 package com.chzu.apitemplate.service.Impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.chzu.apitemplate.common.BaseResponse;
+import com.chzu.apitemplate.common.ErrorCode;
+import com.chzu.apitemplate.common.Result;
+import com.chzu.apitemplate.exception.BusinessException;
 import com.chzu.apitemplate.mapper.ProductMapper;
 import com.chzu.apitemplate.model.entity.Product;
 import com.chzu.apitemplate.service.ProductService;
@@ -30,19 +34,22 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
         if (productMapper.insert(product) >= 0) {
             return true;
-        } else return false;
-//        return productMapper.selectOneById(id);
+        } else {
+            throw new BusinessException(ErrorCode.PARAMS_ERROR, "请求参数错误");
+        }
 
     }
 
 
     @Override
-    public void deleteById(Long id) {
+    public BaseResponse<Boolean> deleteById(Long id) {
         productMapper.deleteById(id);
+        return Result.success(true);
     }
 
     @Override
-    public Product updateProduct(Product product) {
-        return productMapper.updateProduct(product);
+    public BaseResponse<Boolean> updateProduct(Product product) {
+         productMapper.updateProduct(product);
+         return Result.success(true);
     }
 }

@@ -1,6 +1,7 @@
 package com.chzu.apitemplate.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.chzu.apitemplate.common.BaseResponse;
 import com.chzu.apitemplate.model.entity.Product;
 
 import java.util.List;
@@ -13,7 +14,7 @@ public interface ProductService extends IService<Product> {
 
     boolean save(Product product);
 
-    void deleteById(Long id);
+    BaseResponse<Boolean> deleteById(Long id);
 
-    Product updateProduct(Product product);
+    BaseResponse<Boolean> updateProduct(Product product);
 }
